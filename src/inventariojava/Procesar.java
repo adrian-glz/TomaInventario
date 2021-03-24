@@ -53,7 +53,7 @@ public class Procesar extends javax.swing.JFrame {
         String cval;
         int nval;
 
-        final JDialog dialog = new JDialog(Frame.getFrames()[0], "Reportes Estadisticos", true);
+        final JDialog dialog = new JDialog(Frame.getFrames()[0], "Sistema de Inventario", true);
         Thread runnable_progress = new Thread() {
             public void run() {
                 JTextArea msgLabel;
@@ -85,30 +85,28 @@ public class Procesar extends javax.swing.JFrame {
         
         
         
-        
-     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-          String F = sdf.format(JTFECHA.getDate());
-        try {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            java.sql.Connection conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://" + sucursalglobal + "", "usounds", "madljda");
-            st = conexion.createStatement();
-          
-            rs = st.executeQuery("delete from invent; insert into invent (codigo, cantidad) "
-                    + "select codigo, sum(cantidad) as cantidad from InventoryAudit where fecha >= '" + F + "' group by codigo; "
-                    + "exec spp_cargaperiodosdosmeses; "
-                    + "declare @tcv as float; "
-                    + "set @tcv = (select TipoCambioVenta from infor); "
-                    + "exec spp_ADiferenciasDeInventario @tcv");
-           
-            
-            int c=0;
-             while (!(rs.isAfterLast())) {      
-                        System.out.println("##"+rs.next()+" >"+c);
-                  c=c+1;
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String F = sdf.format(JTFECHA.getDate());
+                try {
+                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                    java.sql.Connection conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://" + sucursalglobal + "", "usounds", "madljda");
+                    st = conexion.createStatement();
+
+                    rs = st.executeQuery("delete from invent; insert into invent (codigo, cantidad) "
+                            + "select codigo, sum(cantidad) as cantidad from InventoryAudit where fecha >= '" + F + "' group by codigo; "
+                            + "exec spp_cargaperiodosdosmeses; "
+                            + "declare @tcv as float; "
+                            + "set @tcv = (select TipoCambioVenta from infor); "
+                            + "exec spp_ADiferenciasDeInventario @tcv");
+
+                    int c = 0;
+                    while (!(rs.isAfterLast())) {
+                        System.out.println("##" + rs.next() + " >" + c);
+                        c = c + 1;
                     }
-             
-               } catch (HeadlessException | NumberFormatException | SQLException e) {
-            String respuesta = "The executeQuery method must return a result set.";
+
+                } catch (HeadlessException | NumberFormatException | SQLException e) {
+                    String respuesta = "The executeQuery method must return a result set.";
             if (respuesta.equals(e.getMessage())) {
                 progressBar.setIndeterminate(false);///PROGRESSBAR
                 dialog.dispose();//PROGRESSBAR
@@ -123,8 +121,7 @@ public class Procesar extends javax.swing.JFrame {
         }
         
            nren=0;
-          
-
+           
                 ///////////////////////
               
             }
@@ -207,10 +204,10 @@ public class Procesar extends javax.swing.JFrame {
             System.out.println("si perro");
          procesar();
       
-} else {
-         System.out.println("nel perro");
-}
-      
+            } else {
+                     System.out.println("nel perro");
+            }
+
     }//GEN-LAST:event_btnprocesarActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed

@@ -50,17 +50,12 @@ public class EliminarGondola extends javax.swing.JFrame {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             java.sql.Connection conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://" + sucursalglobal + "", "usounds", "madljda");
             Statement st = conexion.createStatement();
-       
-
        ///     System.out.println(">>>>>xxxx" + txtgondola.getText().toUpperCase() + txtcantidad.getText().toUpperCase() + date);
             ps = conexion.prepareStatement("insert into HistorialInventoryAudit (responsable, transaccion, fechaeliminado) VALUES('" + husuario + "','ELIMINO GONDOLA: "+txt_gondola.getText().trim()+"'"+",getdate())");
             System.out.println("insert into HistorialInventoryAudit (responsable, transaccion, fechaeliminado) VALUES('" + husuario + "','ELIMINO GONDOLA: "+txt_gondola.getText().trim()+"'"+",getdate())");
             int n = ps.executeUpdate();
             if (n > 0) {
-            ///  JOptionPane.showMessageDialog(null, "¡Los datos han grabados en hostirial de auditoria!");
-
-               
-
+            ///  JOptionPane.showMessageDialog(null, "¡Los datos han grabados en hostirial de auditoria!");             
             }
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error en la base de datos historial eliminado");
@@ -72,15 +67,13 @@ public class EliminarGondola extends javax.swing.JFrame {
     
      public void eliminarcodigo(){
      SimpleDateFormat dd = new SimpleDateFormat("yyyy/MM/dd");
-        String fechadisplay = dd.format(gg.getTime());
-     
+        String fechadisplay = dd.format(gg.getTime());    
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             java.sql.Connection conexion = DriverManager.getConnection("jdbc:jtds:sqlserver://" +sucursalglobal+"", "usounds", "madljda");
             Statement st = conexion.createStatement();
           
-            String query = "delete from inventoryaudit where gondola= '" + txt_gondola.getText() + "' and fecha>='"+fechadisplay+"' ";
-          
+            String query = "delete from inventoryaudit where gondola= '" + txt_gondola.getText() + "' and fecha>='"+fechadisplay+"' ";          
             System.out.println("delete from inventoryaudit where gondola= '" + txt_gondola.getText() + "' and fecha>='"+fechadisplay+"' ");
             
             ps = conexion.prepareStatement(query);
@@ -90,16 +83,12 @@ public class EliminarGondola extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "¡Se elimino la gondola : " + txt_gondola.getText());
                 st.close();
                 historialeliminado();
-              
             }
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error en la base de datos");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(EliminarGondola.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-         
-    
     }
   public void existecodigo() {
      SimpleDateFormat dd = new SimpleDateFormat("yyyy/MM/dd");
@@ -112,13 +101,8 @@ public class EliminarGondola extends javax.swing.JFrame {
           
             rs = st.executeQuery("select  gondola from inventoryaudit "
                     + "where gondola='"+txt_gondola.getText() +"' and fecha>= '"+fechadisplay+"'    ");
-          //  System.out.println("select  gondola from inventoryaudit "
-     //               + "where gondola='"+txt_gondola.getText() +"' and fecha>= '"+fechadisplay+"'    ");
-            boolean variable = rs.next();
-
-            String s1 = Boolean.toString(variable);
-            // System.out.println("s1>>" + s1);
-
+             boolean variable = rs.next();
+      String s1 = Boolean.toString(variable);
             try {
                 if (s1.equals("false")) {
                     while (rs.next()) {///

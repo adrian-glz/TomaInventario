@@ -81,6 +81,7 @@ public class Acceso extends javax.swing.JFrame {
         btnentrar = new javax.swing.JButton();
         txtcontraseña = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -135,6 +136,9 @@ public class Acceso extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 6, 155, -1));
+
+        jLabel3.setText("    ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 20, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -208,6 +212,7 @@ public class Acceso extends javax.swing.JFrame {
     private javax.swing.JButton btnentrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPasswordField txtcontraseña;

@@ -86,7 +86,7 @@ public class ImprimirReporte extends javax.swing.JFrame {
           view.setTitle("REPORTE GONDOLA");
           view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
           view.setVisible(true); 
-          this.dispose();
+         // this.dispose();
         } catch (JRException ex) {
             Logger.getLogger(ImprimirReporte.class.getName()).log(Level.SEVERE, null, ex);
              JOptionPane.showMessageDialog(null, ">>"+ex);
