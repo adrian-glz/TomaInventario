@@ -79,7 +79,7 @@ public class EliminarGondola extends javax.swing.JFrame {
             ps = conexion.prepareStatement(query);
             int n = ps.executeUpdate();
 
-            if (n > 0) {
+            if (n >= 0) {
                 JOptionPane.showMessageDialog(null, "¡Se elimino la gondola : " + txt_gondola.getText());
                 st.close();
                 historialeliminado();

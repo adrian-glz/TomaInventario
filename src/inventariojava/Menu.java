@@ -126,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 390, 320, 60));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
-        jLabel2.setText("Ver 2.0");
+        jLabel2.setText("Ver 2.0.1");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 474, 100, 30));
 
         lblsucursal.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N

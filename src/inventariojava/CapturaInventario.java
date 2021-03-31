@@ -70,12 +70,14 @@ public class CapturaInventario extends javax.swing.JFrame {
             Statement st = conexion.createStatement();
             
 
-      //      System.out.println(">>>>>xxxx" + txtgondola.getText().toUpperCase() + txtcantidad.getText().toUpperCase() + date);
+        System.out.println(">>>>>xxxx" + txtgondola.getText().toUpperCase() + txtcantidad.getText().toUpperCase() + date);
             ps = conexion.prepareStatement("insert into inventoryaudit (codigo, gondola, cantidad, fecha) VALUES('" + codigo + "',"
                     + "'" + txtgondola.getText().toUpperCase() + "','" + txtcantidad.getText().toUpperCase() + "','" + date + "');");
             int n = ps.executeUpdate();
-            if (n > 0) {
+             System.out.println("¡Los datos han sido guardados exitósamente!"+n);
+            if (n >= 0) {
                 JOptionPane.showMessageDialog(null, "¡Los datos han sido guardados exitósamente!");
+                System.out.println("¡Los datos han sido guardados exitósamente!"+n);
                 limpiarventanas();
             }
         } catch (HeadlessException | SQLException ex) {
