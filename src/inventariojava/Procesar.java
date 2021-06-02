@@ -231,13 +231,9 @@ public class Procesar extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (JOptionPane.showConfirmDialog(null, " Estas seguro de procesar con la fecha seleccionada ", " ATENCION!!! ",
                     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-
                 procesar();
-
             } else {
-
             }
-
         }
     }//GEN-LAST:event_JTFECHAKeyPressed
 
