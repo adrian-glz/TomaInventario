@@ -73,7 +73,7 @@ public class ImprimirReporte extends javax.swing.JFrame {
           String G = txtgondola.getText();
           pruebaconexion con = new pruebaconexion();
           Connection conn = con.Conectar();
-          System.out.println("GONDOLA>" + G + "FECHA>>>" + F);
+         // System.out.println("GONDOLA>" + G + "FECHA>>>" + F);
           JasperReport reporte = null;
           Map parametro = new HashMap(); // MAPEO DE MAPA TIPO HASH
           parametro.put("jtxt_fecha", "'" +F+ "'");
